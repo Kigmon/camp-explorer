@@ -1,0 +1,35 @@
+name: Deploy static site
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Decode base64 archive
+        run: |
+          base64 -d camp-explorer.zip.b64 > camp-explorer.zip
+      - name: Extract site from archive
+        run: |
+          unzip camp-explorer.zip -d extracted
+          ls -R extracted
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: extracted/camp-explorer
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
