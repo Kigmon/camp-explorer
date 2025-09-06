@@ -1,0 +1,81 @@
+/* Basic styles for the Camp Explorer app */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background-color: #2a9d8f;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.tab {
+  background-color: #264653;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tab.active,
+.tab:hover {
+  background-color: #1d3557;
+}
+
+main {
+  padding: 2rem;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+#category-list {
+  list-style: none;
+  padding: 0;
+}
+
+#category-list li {
+  background-color: white;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#map-controls {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+#map-container {
+  height: 400px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #264653;
+  color: white;
+}
